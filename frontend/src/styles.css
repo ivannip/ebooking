@@ -1,0 +1,29 @@
+.timeSlot {
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px #ccc;
+    padding: 4px;
+    width: 60px;
+    margin: 4px;
+    float: left;
+  }
+  
+  .form-grid {
+    display: grid;
+    grid-template-columns: 100px auto;
+  }
+  
+  .booking-grid {
+    display: grid;
+    grid-template-columns: 300px 300px;
+  }
+  
+  .stepper {
+    padding: 16px;
+    margin: 16px;
+  }
+  
+  .formArea {
+    padding: 16px;
+    margin: 16px;
+  }
