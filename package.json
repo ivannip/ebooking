@@ -9,7 +9,7 @@
     "start": "node dist/server.js",
     "start:mon": "nodemon src/server.ts",
     "postinstall": "tsc",
-    "heroku-postbuild": "cd ../frontend && npm install && npm run build"
+    "heroku-postbuild": "cd ./frontend && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
