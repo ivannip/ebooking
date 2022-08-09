@@ -11,7 +11,7 @@ export const COOKIE_OPTIONS:CookieOptions = {
 };
 
 
-export const getToken = (userId: {id: number}):string => {
+export const getToken = (userId: {id: number | string}):string => {
     //return jwt.sign(user, process.env.JWT_SECRET, {expiresIn: eval(process.env.SESSION_EXPIRY)})
     return jwt.sign(userId, process.env.SECRET, {expiresIn: eval(process.env.TOKEN_EXPIRE)});
 };

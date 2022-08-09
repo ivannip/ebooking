@@ -1,5 +1,5 @@
 import {Router} from "express";
-import { findAllBooking, updateSampleNo, findByMobile } from "../mongodb/controllers/booking.controllers";
+import { findAllBooking, updateSampleNo, findByMobile } from "../controllers/booking.controllers";
 
 
 const router: Router = Router();

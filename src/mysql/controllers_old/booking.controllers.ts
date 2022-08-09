@@ -19,7 +19,6 @@ export const findByMobile: RequestHandler = async (req: Request, res: Response) 
     try {
         
         const bookings: INewBooking [] = await findByMobileService(req.body.mobile);
-        console.log(bookings[0]);
         res.status(200).json(bookings);
     } catch (err) {
         logger.error(err);
@@ -31,7 +30,7 @@ export const findByMobile: RequestHandler = async (req: Request, res: Response) 
 export const createOneBooking: RequestHandler = async (req: ICreateOneBookingReq, res: Response) => {
     try {
         const newBooking: IBooking = req.body;
-        const result: boolean = await createOneService(newBooking);
+        const result = await createOneService(newBooking);
         res.status(200).json(result); 
     } catch (err) {
         logger.error(err);
@@ -42,8 +41,8 @@ export const createOneBooking: RequestHandler = async (req: ICreateOneBookingReq
 export const createNewBooking: RequestHandler = async (req: INewBookingReq, res: Response) => {
     try {
         const newBooking: INewBooking = req.body;
-        logger.debug(newBooking);
-        const result: IBooking = await createNewBookingService(newBooking);
+        console.log(newBooking);
+        const result = await createNewBookingService(newBooking);
         res.status(200).json(result);
     } catch (err) {
         logger.error(err);
@@ -54,7 +53,7 @@ export const createNewBooking: RequestHandler = async (req: INewBookingReq, res:
 export const updateSampleNo: RequestHandler = async (req: INewBookingReq, res: Response) => {
     try {
         const booking: INewBooking = req.body;
-        const result: {affectedRows: number} = await updateSampleNoByIdService(booking);
+        const result = await updateSampleNoByIdService(booking);
         if (result.affectedRows === 1)
             res.status(200).json({message: "update success"});
         else

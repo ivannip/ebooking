@@ -1,5 +1,5 @@
 import {Router} from "express";
-import { findBySampleId, updateResult} from "../mongodb/controllers/testRecord.controllers"
+import { findBySampleId, updateResult} from "../controllers/testRecord.controllers"
 
 const router: Router = Router();
 

@@ -13,10 +13,10 @@ export const findByLoginIdService = async (loginId: IUser["loginId"]) => {
     return foundUsers;
 }
 
-export const createOneService = async (user: IUser) => {
+export const createOneService = async (user: IUser)  => {
     //const result = await execute <{affectedRows: number, insertId: number}> (userQueries.createOne, [user.loginId, user.password, user.email, user.role]);
     //return result;
     const savedUser: IUser = await User.create(user);
-    return savedUser;
+    return {id: savedUser._id};
     
 }

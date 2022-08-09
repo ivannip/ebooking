@@ -1,8 +1,6 @@
 import {Router} from "express";
-// import {createOneBooking, createNewBooking} from "../mysql/controllers/booking.controllers";
-// import {findAllPlace} from "../mysql/controllers/place.controllers";
-import {createOneBooking, createNewBooking} from "../mongodb/controllers/booking.controllers";
-import {findAllPlace} from "../mongodb/controllers/place.controllers";
+import {createOneBooking, createNewBooking} from "../controllers/booking.controllers";
+import {findAllPlace} from "../controllers/place.controllers";
 
 const router: Router = Router();
 

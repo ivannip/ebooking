@@ -1,6 +1,5 @@
 import {Router, Request, Response} from "express";
-//import {register, retrieveUserInfo, login, logout, verifyLogin} from "../mysql/controllers/auth.controllers"
-import {register, retrieveUserInfo, login, logout, verifyLogin} from "../mongodb/controllers/auth.controllers"
+import {register, retrieveUserInfo, login, logout, verifyLogin} from "../controllers/auth.controllers"
 import { verifyToken } from "../middlewares/verifyToken.middleware";
 
 

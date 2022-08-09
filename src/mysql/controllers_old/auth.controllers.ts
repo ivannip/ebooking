@@ -1,4 +1,5 @@
 import {Request, Response, RequestHandler} from "express";
+//import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import {IUser, ICreateOneReq, ILoginReq} from "../models/user.model";
 import { createOneService, findByIdService, findByLoginIdService } from "../services/user.services";
@@ -12,7 +13,7 @@ export const register: RequestHandler = async (req: ICreateOneReq, res: Response
         newUser = {...newUser, password: hashedPassword};
         const result = await createOneService(newUser);
         //var token = jwt.sign({id: result.insertId}, process.env.SECRET, {expiresIn: +process.env.TOKEN_EXPIRE});
-        var token = getToken({id: result._id});
+        var token = getToken({id: result.id});
         res.cookie("token", token, COOKIE_OPTIONS)   
         res.status(200).json({success: true, token: token});
     } catch (err) {
@@ -30,7 +31,7 @@ export const login: RequestHandler = async (req: ILoginReq, res: Response) => {
         if (!isValid) return res.status(404).json({message: "Password incorrect"});
 
         //var token = jwt.sign({id: users[0].id}, process.env.SECRET, {expiresIn: +process.env.TOKEN_EXPIRE});        
-        var token = getToken({id: users[0]._id});
+        var token = getToken({id: users[0].id});
         
         //parse the token to client cookie, require cookie-parser
         res.cookie("token", token, COOKIE_OPTIONS)   
@@ -73,6 +74,7 @@ export const verifyLogin: RequestHandler = async (req: Request, res: Response) =
     }
 
 }
+
 
 export const logout: RequestHandler = (req: Request, res: Response) => {
     const { signedCookies = {}} = req;
