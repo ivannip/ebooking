@@ -4,6 +4,7 @@ import {logger} from "./logger";
 let conn: Connection;
 
 export const connectDB = () => {
+    
     mongoose.connect(process.env.MONGODB_URL);
 
     conn = mongoose.connection;

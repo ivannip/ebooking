@@ -1,0 +1,7 @@
+node_modules
+notes
+.git
+logs
+.elasticbeanstalk
+seed_data.sql
+webpack.config.js

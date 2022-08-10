@@ -5,7 +5,12 @@ import { findAllBooking, updateSampleNo, findByMobile } from "../controllers/boo
 const router: Router = Router();
 
 router.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  const allowedOrigins = ['http://localhost:3000', 'http://localhost:3001'];
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  // res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
     res.header("Access-Control-Allow-Credentials", "true");
     res.header(
       "Access-Control-Allow-Headers",

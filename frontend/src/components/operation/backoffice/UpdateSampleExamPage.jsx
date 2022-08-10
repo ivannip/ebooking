@@ -1,21 +1,30 @@
 import {useFormik} from "formik";
 import {Paper, Grid, Button, InputLabel, Select, MenuItem, FormControl} from "@mui/material";
 import axios from "axios";
+import {useState} from "react";
 
 function UpdateSampleExamPage(props) {
 
     const {testRecord, back, next} = props;
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const { handleSubmit, handleChange, values } = useFormik({
         initialValues: {result:""},
         onSubmit(values) {
+          setIsSubmitting(true);
           handleUpdate(values);
         }
     });
 
     const handleUpdate = async (values) => {
-        await axios.post(`${process.env.REACT_APP_API_ENDPOINT}office/updateTestResult`, {...testRecord, ...values})
-        next();
+        try {
+            await axios.post(`${process.env.REACT_APP_API_ENDPOINT}office/updateTestResult`, {...testRecord, ...values})
+            next();
+        } catch (err) {
+            console.log(err);
+        } finally {
+            setIsSubmitting(false);    
+        }
     }
 
     return testRecord === null?(
@@ -42,7 +51,7 @@ function UpdateSampleExamPage(props) {
                     <MenuItem value={"P"}>Pass</MenuItem>
                     <MenuItem value={"F"}>Fail</MenuItem>
                     </Select>   
-                    <Button fullWidth type="submit">
+                    <Button fullWidth type="submit" disable={isSubmitting}>
                         {" "}
                         Update{" "}
                     </Button>

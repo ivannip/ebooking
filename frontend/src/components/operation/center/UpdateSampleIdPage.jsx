@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Button, Paper, Grid} from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -7,6 +7,7 @@ import axios from "axios";
 function UpdateSampleIdPage(props) {
 
     const {bookingRecord, next, shwUpdateForm, setShwUpdateForm} = props;
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const validationSchema = yup.object({
         sampleId: yup.string().required("Sample ID is requred"),
@@ -16,6 +17,7 @@ function UpdateSampleIdPage(props) {
         initialValues: {sampleId: ""},
         validationSchema,
         onSubmit(values) {
+          setIsSubmitting(true);
           handleUpdate(values);
         }
     });
@@ -31,6 +33,8 @@ function UpdateSampleIdPage(props) {
                 console.log(res.data.message);
         } catch (err) {
             console.log(err);
+        } finally {
+            setIsSubmitting(false);
         }
     }
 
@@ -52,7 +56,7 @@ function UpdateSampleIdPage(props) {
                         <form  onSubmit={handleSubmit} className="form-grid">
                             <div>SampleNo: <input name="sampleId" value={values.sampleId} onChange={handleChange}/>
                             {errors.sampleNo?errors.sampleNo:null}
-                                <Button fullWidth type="submit">
+                                <Button fullWidth type="submit" disable={isSubmitting}>
                                         {" "}
                                         Update{" "}
                                 </Button>

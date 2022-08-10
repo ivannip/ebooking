@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "engines": {"node": "16.16.0"},
+  "engines": {
+    "node": "16.16.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node dist/server.js",
     "dev:mon": "nodemon src/server.ts",
     "postinstall": "tsc",
-    "heroku-postbuild": "cd ./frontend && npm install && npm run build"
+    "heroku-postbuild": "cd ./frontend && npm install && npm run build",
+    "build:webpack": "webpack",
+    "deploy": "git add . && git commit -m 'deploy to heroku' && git push heroku master"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +33,8 @@
     "winston": "^3.8.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-typescript": "^7.18.6",
     "@types/bcryptjs": "^2.4.2",
     "@types/body-parser": "^1.19.2",
     "@types/compression": "^1.7.2",
@@ -41,7 +47,10 @@
     "@types/mysql": "^2.15.21",
     "@types/uuid": "^8.3.4",
     "@types/winston": "^2.4.4",
+    "babel-loader": "^8.2.5",
+    "ts-loader": "^9.3.1",
     "ts-node": "^10.8.2",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "webpack-cli": "^4.10.0"
   }
 }

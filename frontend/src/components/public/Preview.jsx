@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { useFormik } from "formik";
 import axios from "axios";
 
 function Preview(props) {
   const { inputForm, next, back} = props;
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const saveBooking = async (values) => {
     const res = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}public/saveBooking`, values);
@@ -14,7 +15,9 @@ function Preview(props) {
   const { handleSubmit } = useFormik({
     initialValues: inputForm,
     onSubmit(values) {
-      saveBooking(values);
+        setIsSubmitting(true)
+        saveBooking(values);
+        setIsSubmitting(false);
     }
   });
 
@@ -31,7 +34,7 @@ function Preview(props) {
       <p>Selected Date: {inputForm.selectedDate} </p>
       <p>Selected Time: {inputForm.selectedTime} </p>
       <button onClick={back}>Back</button>
-      <button type="submit">Confirm</button>
+      <button type="submit" disabled={isSubmitting}>Confirm</button>
     </form>
   );
 }
