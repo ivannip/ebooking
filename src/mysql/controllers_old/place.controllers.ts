@@ -1,6 +1,6 @@
 import {Request, Response, RequestHandler} from "express";
-import { findAllService } from "../services/place.services";
-import { IPlace } from "../models/place.model";
+import { findAllService } from "../../services/mysql/place.services";
+import { IPlace } from "../../models/mysql/place.model";
 import {logger} from "../../util/logger";
 
 export const findAllPlace: RequestHandler = async (req: Request, res: Response) => {

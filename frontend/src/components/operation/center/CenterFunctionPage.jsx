@@ -15,6 +15,12 @@ function CenterFunctionPage() {
     });
   };
 
+  const back = (backstep) => {
+    setStep((prev) => {
+      return prev - backstep;
+    })
+  }
+
   const fetchBooking = async (_mobile) => {
     try {
       const res = await axios.post(process.env.REACT_APP_API_ENDPOINT+"center/bookingByMobile", {mobile: _mobile});
@@ -26,8 +32,8 @@ function CenterFunctionPage() {
 
   const stepPages = [
     <SearchPage next={next} fetchBooking={fetchBooking} />,
-    <ListBookingPage next={next} bookingRecords={bookingRecords} />,
-    <ResultPage />
+    <ListBookingPage next={next} bookingRecords={bookingRecords} back={back}/>,
+    <ResultPage back={back}/>
   ];
   return <div>{stepPages[step]}</div>;
 }

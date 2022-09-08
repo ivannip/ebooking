@@ -1,7 +1,7 @@
 import { Request, Response, RequestHandler } from "express";
 //import { ICanditate } from "../models/canditate.model";
-import { IBooking, IFindAllReq, ICreateOneBookingReq, INewBooking, INewBookingReq} from "../models/booking.model"
-import {findAllService, createOneService, createNewBookingService, findByMobileService, updateSampleNoByIdService} from "../services/booking.services";
+import { IBooking, IFindAllReq, ICreateOneBookingReq, INewBooking, INewBookingReq} from "../../models/mysql/booking.model"
+import {findAllService, createOneService, createNewBookingService, findByMobileService, updateSampleNoByIdService} from "../../services/mysql/booking.services";
 import {logger} from "../../util/logger";
 //import { createOneCanditate } from "../services/canditate.services";
 

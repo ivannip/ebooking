@@ -23,6 +23,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const res = await axios.post(process.env.REACT_APP_API_ENDPOINT+"auth/login", JSON.stringify(user), {headers: {"Content-Type": "application/json"}});
+      
       setUserContext({success:true, token: res.data.token, details: res.data.details});
       
     } catch (err) {

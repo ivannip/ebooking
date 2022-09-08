@@ -19,7 +19,7 @@ function CommonMainPage() {
     try {
       const res = await axios.post(process.env.REACT_APP_API_ENDPOINT+"auth/verifyLogin");
       const data = res.data;
-      if (res.status === 200) 
+      if (res.status === 200 && data !== undefined && data !== null) 
         setUserContext( (prev) => {
           return {...prev, success: true, token: data.token, details: data.details}
         })

@@ -24,8 +24,6 @@ function ListBookingForm(props) {
     const [selectionModel, setSelectionModel] = useState([]);
     const [shwUpdateForm, setShwUpdateForm] = useState(false);
 
-    console.log(bookingRecords);
-
     const columns = [
         {field: "id", headerName: "ID", width:90},
         {field: "firstName", headerName: "First Name", width: 100, editable: false},
@@ -37,6 +35,10 @@ function ListBookingForm(props) {
         {field: "selectedTime", headerName: "Scheduled Time", width: 150, editable: false},
         {field: "sampleId", headerName: "Sample ID", width:100, editable: false}
     ]
+
+    const returnSearch = () => {
+        props.back(1)
+    }
 
     return (
       <div>
@@ -60,6 +62,7 @@ function ListBookingForm(props) {
                 selectionModel={selectionModel}
             />
         </Box>
+        <button onClick={returnSearch}>Back</button>
         <UpdateSampleIdPage bookingRecord={bookingRecord} next={next} shwUpdateForm={shwUpdateForm} setShwUpdateForm={setShwUpdateForm} />
 </div>
     )

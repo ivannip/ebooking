@@ -1,4 +1,4 @@
-import { ITestRecord, TestRecord } from "../../mongodb/models/testRecord.model";
+import { ITestRecord, TestRecord } from "../../models/mongodb/testRecord.model";
 
 
 export const createOneService= async(testRecord: ITestRecord) => {

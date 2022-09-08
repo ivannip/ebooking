@@ -1,5 +1,5 @@
-import { createOneService, findBySampleIdService, updateResultByIdService } from "../services/testRecord.services";
-import { ICreateOneTestRecordReq, IFindBySampleIdReq, ITestRecord, IUpdateOneReq } from "../models/testRecord.model";
+import { createOneService, findBySampleIdService, updateResultByIdService } from "../../services/mysql/testRecord.services";
+import { ICreateOneTestRecordReq, IFindBySampleIdReq, ITestRecord, IUpdateOneReq } from "../../models/mysql/testRecord.model";
 //import { IFindByUserIdReq } from "../models/booking.model";
 import {Response, RequestHandler} from "express";
 import {logger} from "../../util/logger";

@@ -1,5 +1,6 @@
 import {Router} from "express";
 import { findBySampleId, updateResult} from "../controllers/testRecord.controllers"
+import {verifyToken} from "../middlewares/verifyToken.middleware"
 
 const router: Router = Router();
 
@@ -21,6 +22,6 @@ router.use((req, res, next) => {
 
 router.get("/findTestRecord/:sampleId", findBySampleId);
 
-router.post("/updateTestResult", updateResult);
+router.post("/updateTestResult", verifyToken, updateResult);
 
 export default router;

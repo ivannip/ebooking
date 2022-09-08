@@ -1,6 +1,6 @@
 import {execute} from "../../util/mysql.connect";
 //import {logger} from "../../util/logger";
-import { ICanditate } from "../../mysql/models/canditate.model";
+import { ICanditate } from "../../models/mysql/canditate.model";
 
 export const canditateQueries = {
     findAll: `select id, canditateNo, firstName, lastName, idDocNo, mobile, email, address from canditates`,

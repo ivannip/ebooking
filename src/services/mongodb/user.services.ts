@@ -1,4 +1,4 @@
-import {IUser, User} from "../models/user.model";
+import {IUser, User} from "../../models/mongodb/user.model";
 import {logger} from "../../util/logger"
 
 export const findByIdService = async (id: IUser["id"]) => {

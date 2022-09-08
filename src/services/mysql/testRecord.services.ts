@@ -1,4 +1,4 @@
-import { ITestRecord } from "../../mysql/models/testRecord.model";
+import { ITestRecord } from "../../models/mysql/testRecord.model";
 import { execute } from "../../util/mysql.connect";
 
 export const testRecordQueries = {

@@ -1,6 +1,6 @@
 
 
-import { Canditate, ICanditate } from "../../mongodb/models/canditate.model";
+import { Canditate, ICanditate } from "../../models/mongodb/canditate.model";
 
 export const createOneCanditate  = async (canditate: ICanditate) => {
     // const result = await execute <{affectedRows: number, insertId: number}> (canditateQueries.createOne, [canditate.firstName, 

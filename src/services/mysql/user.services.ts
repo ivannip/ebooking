@@ -1,6 +1,6 @@
 
 import {execute} from "../../util/mysql.connect";
-import {IUser} from "../models/user.model";
+import {IUser} from "../../models/mysql/user.model";
 
 export const userQueries = {
     findAll: `select * from users`,

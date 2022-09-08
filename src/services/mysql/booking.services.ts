@@ -1,9 +1,9 @@
 import {execute, getConnection} from "../../util/mysql.connect";
-import {IBooking} from "../../mysql/models/booking.model";
-import { ICanditate } from "../../mysql/models/canditate.model";
+import {IBooking} from "../../models/mysql/booking.model";
+import { ICanditate } from "../../models/mysql/canditate.model"
 import { testRecordQueries } from "./testRecord.services";
 import { canditateQueries } from "./canditate.services";
-import { INewBooking } from "../../mysql/models/booking.model";
+import { INewBooking } from "../../models/mysql/booking.model";
 import {logger} from "../../util/logger";
 import {v1 as uuidv1} from "uuid";
 

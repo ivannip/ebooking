@@ -14,9 +14,9 @@ function BackOfficeFunctionPage() {
         });
     };
 
-    const back = () => {
+    const back = (backStep) => {
         setStep((prev) => {
-            return prev - 1
+            return prev - backStep
         })
     }
 
@@ -24,6 +24,7 @@ function BackOfficeFunctionPage() {
         try {
             const res = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}office/findTestRecord/${sampleId}`);
             const results = res.data;
+            console.log(results)
             if (results.length === 0 || results === undefined) {
                 setTestRecord(null);
                 return false;
@@ -39,7 +40,7 @@ function BackOfficeFunctionPage() {
     const stepPages = [
         <SearchPageBackOffice next={next} fetchTestRecord={fetchTestRecord}/>,
         <UpdateSampleExamPage next={next} back={back} testRecord={testRecord}/>,
-        <ResultPageBackOffice />
+        <ResultPageBackOffice back={back}/>
       ];
     
     return <div>{stepPages[step]}</div>;

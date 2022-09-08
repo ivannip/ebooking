@@ -1,6 +1,6 @@
 import {Request, Response, RequestHandler} from "express";
-import { findAllService } from "../mongodb/services/place.services";
-import { IPlace } from "../mongodb/models/place.model";
+import { findAllService } from "../services/mongodb/place.services";
+import { IPlace } from "../models/mongodb/place.model";
 //import { findAllService } from "../mysql/services/place.services";
 //import { IPlace } from "../mysql/models/place.model";
 import {logger} from "../util/logger";

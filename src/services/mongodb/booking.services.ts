@@ -1,12 +1,11 @@
 import { getConnection } from "../../util/mongodb.connect";
 import {ClientSession, Connection} from "mongoose";
-import {IBooking, Booking, INewBooking} from "../models/booking.model";
-import {User} from "../models/user.model";
-import { ICanditate, Canditate } from "../models/canditate.model";
+import {IBooking, Booking, INewBooking} from "../../models/mongodb/booking.model";
+import { ICanditate, Canditate } from "../../models/mongodb/canditate.model";
 
 import {logger} from "../../util/logger";
 import {v1 as uuidv1} from "uuid";
-import { TestRecord, ITestRecord } from "../models/testRecord.model";
+import { TestRecord, ITestRecord } from "../../models/mongodb/testRecord.model";
 
 export const findAllService = async () => {
     //return execute<IBooking []> (bookingQueries.findAll, []);

@@ -1,8 +1,8 @@
 import {Request, Response, RequestHandler} from "express";
 //import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import {IUser, ICreateOneReq, ILoginReq} from "../models/user.model";
-import { createOneService, findByIdService, findByLoginIdService } from "../services/user.services";
+import {IUser, ICreateOneReq, ILoginReq} from "../../models/mysql/user.model";
+import { createOneService, findByIdService, findByLoginIdService } from "../../services/mysql/user.services";
 import {logger} from "../../util/logger";
 import { COOKIE_OPTIONS, getToken, verifyToken } from "../../util/authenticate";
 
