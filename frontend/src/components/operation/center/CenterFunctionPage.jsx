@@ -24,6 +24,7 @@ function CenterFunctionPage() {
   const fetchBooking = async (_mobile) => {
     try {
       const res = await axios.post(process.env.REACT_APP_API_ENDPOINT+"center/bookingByMobile", {mobile: _mobile});
+      console.log(res.data);
       setBookingRecords(res.data);
     } catch (err) {
       console.log(err)

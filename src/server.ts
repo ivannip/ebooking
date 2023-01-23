@@ -9,16 +9,18 @@ import backOfficerRoutes from "./routes/backOfficeRoutes";
 import centerRoutes from "./routes/centerRoutes";
 import publicRoutes from "./routes/publicRoutes";
 import authRoutes from "./routes/authRoutes";
-//import * as MySQLConnector from "./util/mysql.connect";
+// import * as MySQLConnector from "./util/mysql.connect";
 import * as MongoDBConnector from "./util/mongodb.connect";
 import {logger} from "./util/logger";
 
 const app = express();
 
-if (process.env.NODE_ENV !== "production") {   
-    require("dotenv").config();
-}
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+  }
+
 const PORT = process.env.PORT || "3001";
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(compression());
@@ -27,7 +29,7 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser(process.env.SECRET))
 
-//MySQLConnector.connectDB();
+// MySQLConnector.connectDB();
 MongoDBConnector.connectDB();
 
 app.use("/center", centerRoutes);

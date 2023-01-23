@@ -1,7 +1,7 @@
-import { createOneService, findBySampleIdService, updateResultByIdService } from "../services/mongodb/testRecord.services";
-import { ICreateOneTestRecordReq, IFindBySampleIdReq, ITestRecord, IUpdateOneReq } from "../models/mongodb/testRecord.model";
 //import { createOneService, findBySampleIdService, updateResultByIdService } from "../services/mysql/testRecord.services";
 //import { ICreateOneTestRecordReq, IFindBySampleIdReq, ITestRecord, IUpdateOneReq } from "../models/mysql/testRecord.model";
+import { createOneService, findBySampleIdService, updateResultByIdService } from "../services/mongodb/testRecord.services";
+import { ICreateOneTestRecordReq, IFindBySampleIdReq, ITestRecord, IUpdateOneReq } from "../models/mongodb/testRecord.model";
 import {Response, RequestHandler} from "express";
 import {logger} from "../util/logger";
 

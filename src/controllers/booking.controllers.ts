@@ -1,8 +1,8 @@
 import { Request, Response, RequestHandler } from "express";
 import { IBooking, IFindAllReq, ICreateOneBookingReq, INewBooking, INewBookingReq} from "../models/mongodb/booking.model"
 import {findAllService, createOneService, createNewBookingService, findByMobileService, updateSampleNoByIdService} from "../services/mongodb/booking.services";
-//import { IBooking, IFindAllReq, ICreateOneBookingReq, INewBooking, INewBookingReq} from "../mysql/models/booking.model"
-//import {findAllService, createOneService, createNewBookingService, findByMobileService, updateSampleNoByIdService} from "../mysql/services/booking.services";
+// import { IBooking, IFindAllReq, ICreateOneBookingReq, INewBooking, INewBookingReq} from "../models/mysql/booking.model"
+// import {findAllService, createOneService, createNewBookingService, findByMobileService, updateSampleNoByIdService} from "../services/mysql/booking.services";
 import {logger} from "../util/logger";
 
 export const findAllBooking: RequestHandler = async (req: IFindAllReq, res: Response) => {

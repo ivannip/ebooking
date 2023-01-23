@@ -17,6 +17,7 @@ function CommonMainPage() {
 
   const verifyLogin = useCallback( async () => {
     try {
+      console.log(process.env.REACT_APP_API_ENDPOIN);
       const res = await axios.post(process.env.REACT_APP_API_ENDPOINT+"auth/verifyLogin");
       const data = res.data;
       if (res.status === 200 && data !== undefined && data !== null) 

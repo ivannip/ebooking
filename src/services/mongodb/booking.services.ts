@@ -42,7 +42,6 @@ export const findByMobileService = async (mobile: string) => {
 }
 
 export const updateSampleNoByIdService = async (booking: INewBooking) => {
-    logger.debug(booking);
     const connection: Connection = await getConnection();
     const session:ClientSession = await connection.startSession();
     const trimMobile = booking.mobile.length > 4?booking.mobile.substring(0,4):booking.mobile;
@@ -54,7 +53,7 @@ export const updateSampleNoByIdService = async (booking: INewBooking) => {
         // result = await connection.query(testRecordQueries.createOne, [booking.sampleId, booking.firstName, trimMobile, trimIdDocNo])
         // await connection.query("COMMIT");
         session.startTransaction();
-        await Booking.updateOne({_id: booking.id}, {sampleId: booking.sampleId}, {session});
+        await Booking.updateOne({_id: booking._id}, {sampleId: booking.sampleId}, {session});
         const createdRecords: ITestRecord [] = await TestRecord.create([{sampleId: booking.sampleId, firstName: booking.firstName, mobile: trimMobile, idDocNo: trimIdDocNo}], {session})
         await session.commitTransaction();
         return {affectedRows: createdRecords.length};
